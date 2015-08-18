@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/opensteuer-users/2004-April/index.html" >
+   <LINK REL="made" HREF="mailto:opensteuer-users%40lists.berlios.de?Subject=Re%3A%20%5BOpensteuer-users%5D%20Compilierung%20und%20Installaltion%20unter%20SuSE%208.1&In-Reply-To=%3C20040402160141.GA696%40martinkl.dialup.fu-berlin.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   <LINK REL="Next"  HREF="000002.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1</H1>
+    <B>Martin Klaiber</B> 
+    <A HREF="mailto:opensteuer-users%40lists.berlios.de?Subject=Re%3A%20%5BOpensteuer-users%5D%20Compilierung%20und%20Installaltion%20unter%20SuSE%208.1&In-Reply-To=%3C20040402160141.GA696%40martinkl.dialup.fu-berlin.de%3E"
+       TITLE="[Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1">martinkl at zedat.fu-berlin.de
+       </A><BR>
+    <I>Fri Apr  2 18:01:41 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+</A></li>
+        <LI>Next message: <A HREF="000002.html">[Opensteuer-dev] Re: [Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Norman,
+
+&quot;Kurth, Norman&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/opensteuer-users">NoKurth at gmx.de</A>&gt; wrote:
+
+&gt;<i> bevor ich mich an die allgemeine Beschreibung bzw. an die Erstellung der
+</I>&gt;<i> Doku/Hilfe machen wollte, war ich neugierig und wollten einen Blick auf den
+</I>&gt;<i> bisherigen Stand des Programmes werden.
+</I>
+Auf dem ftp-Server m&#252;sste eine statisch gelinkte Version liegen, die
+Du Dir herunterladen kannst. Aber erwarte nicht zu viel, das Programm
+ist seeehr einfach, unsere allererste Version eben.
+
+&gt;<i> Doch leider bekomme ich es nicht hin (ok, meine Linux-Kenntnisse sind nicht
+</I>&gt;<i> die besten)!
+</I>
+Das liegt nicht an Dir. Du verwendest vermutlich Gtk-2.x, das Programm
+verlangt aber Gtk-1.x, bzw. die entsprechenden GtkAda-Versionen. Leider
+sind 1.x und 2.x nicht kompatibel.
+
+Statt das Programm nach Gtk-2.x/GtkAda-2.x zu portieren, haben wir uns
+entschlossen, den eigentlichen Steuerteil in eine library auszulagern.
+Das hat den Vorteil, dass man die library in andere Programme einbinden
+kann, und dass man variable Frontends dazuschreiben kann (welche f&#252;r
+die Konsole oder f&#252;r X11, usw.).
+
+Die library ist jetzt nahezu fertig, aber auch daf&#252;r fehlt noch Doku.
+Bisher existiert nur das Fragment einer man-page, die aber in erster
+Linie das Interface anspricht, also nicht auf Steuerfragen eingeht. Um
+die man-page k&#252;mmere ich mich, aber wenn Du Lust h&#228;ttest, Steuer-Doku
+f&#252;r die lib zu schreiben, w&#228;re das auch sehr, sehr hilfreich. Ich kann
+an der Stelle schon mal sagen, dass ich mich mit Steuerthemen kaum
+auskenne. Ich mache nur die Programmierung.
+
+Ein einfaches Kommandozeilenfrontend ist bei der library dabei, damit
+kann man die lib testen oder benutzen, das k&#246;nnte ich noch etwas
+aufpeppen und dokumentieren. Wann ich dazu komme, ein X11-Frontend zu
+schreiben, kann ich nicht sagen. Da ich ohnehin &#252;berwiegend auf der
+Konsole unterwegs bin, ist mir das auch nicht so wichtig. Da m&#252;sstet
+ihr mich eventuell etwas schubsen ;-)
+
+Ich verschiebe die Diskussion mal nach opensteuer-dev. Alles was mit
+der Weiterentwicklung zu tun hat, diskutieren wir dort.
+
+Martin
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+</A></li>
+	<LI>Next message: <A HREF="000002.html">[Opensteuer-dev] Re: [Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/opensteuer-users">More information about the Opensteuer-users
+mailing list</a><br>
+</body></html>

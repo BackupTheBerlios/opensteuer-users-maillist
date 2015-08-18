@@ -1,0 +1,139 @@
+From NoKurth at gmx.de  Fri Apr  2 15:58:25 2004
+From: NoKurth at gmx.de (Kurth, Norman)
+Date: Fri, 2 Apr 2004 15:58:25 +0200
+Subject: [Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+Message-ID: <000001c418ba$96fd1a90$0a00a8c0@heim.local>
+
+Hallo zusammen,
+
+bevor ich mich an die allgemeine Beschreibung bzw. an die Erstellung der
+Doku/Hilfe machen wollte, war ich neugierig und wollten einen Blick auf den
+bisherigen Stand des Programmes werden.
+Doch leider bekomme ich es nicht hin (ok, meine Linux-Kenntnisse sind nicht
+die besten)!
+
+Immer wenn ich "make -static" eingebe, erhalte ich die folgenden
+Fehlermeldung:
+   gnatmake opensteuer -m `gtkada-config --static` -cargs -O3 -bargs -static
+   Package gtk+-x11-2.0 was not found in the pkg-config search path.
+   Perhaps you should add the directory containing `gtk+-x11-2.0.pc'
+   to the PKG_CONFIG_PATH environment variable
+   No package 'gtk+-x11-2.0' found
+   gcc -c -I/usr/include/gtkada -O3 opensteuer_main.adb
+   opensteuer_main.adb:61:35: expected an access type with designated
+private type "Gtk_Frame_Record" defined at gtk-frame.ads:54
+   opensteuer_main.adb:61:35: found type "Gtk_Menu_Bar" defined at
+gtk-menu_bar.ads:44
+   gnatmake: "opensteuer_main.adb" compilation error
+   make: *** [static] Error 4
+
+Auch die Eingabe von "make" hilft nicht weiter. Dann kann ich immer
+folgenden Fehlermeldung lesen:
+   gnatmake opensteuer -m `gtkada-config` -cargs -O3
+   gcc -c -I/usr/include/gtkada -O3 opensteuer_main.adb
+   opensteuer_main.adb:61:35: expected an access type with designated
+private type "Gtk_Frame_Record" defined at gtk-frame.ads:54
+   opensteuer_main.adb:61:35: found type "Gtk_Menu_Bar" defined at
+gtk-menu_bar.ads:44
+   gnatmake: "opensteuer_main.adb" compilation error
+   make: *** [all] Error 4
+
+Was muss ich tun, damit ich OpenSteuer zum laufen bekommen?
+Linux-Version ist SuSE 8.1
+
+Gru?
+Norman
+
+
+
+
+From martinkl at zedat.fu-berlin.de  Fri Apr  2 18:01:41 2004
+From: martinkl at zedat.fu-berlin.de (Martin Klaiber)
+Date: Fri, 2 Apr 2004 18:01:41 +0200
+Subject: [Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+In-Reply-To: <000001c418ba$96fd1a90$0a00a8c0@heim.local>
+References: <000001c418ba$96fd1a90$0a00a8c0@heim.local>
+Message-ID: <20040402160141.GA696@martinkl.dialup.fu-berlin.de>
+
+Hallo Norman,
+
+"Kurth, Norman" <NoKurth at gmx.de> wrote:
+
+> bevor ich mich an die allgemeine Beschreibung bzw. an die Erstellung der
+> Doku/Hilfe machen wollte, war ich neugierig und wollten einen Blick auf den
+> bisherigen Stand des Programmes werden.
+
+Auf dem ftp-Server m?sste eine statisch gelinkte Version liegen, die
+Du Dir herunterladen kannst. Aber erwarte nicht zu viel, das Programm
+ist seeehr einfach, unsere allererste Version eben.
+
+> Doch leider bekomme ich es nicht hin (ok, meine Linux-Kenntnisse sind nicht
+> die besten)!
+
+Das liegt nicht an Dir. Du verwendest vermutlich Gtk-2.x, das Programm
+verlangt aber Gtk-1.x, bzw. die entsprechenden GtkAda-Versionen. Leider
+sind 1.x und 2.x nicht kompatibel.
+
+Statt das Programm nach Gtk-2.x/GtkAda-2.x zu portieren, haben wir uns
+entschlossen, den eigentlichen Steuerteil in eine library auszulagern.
+Das hat den Vorteil, dass man die library in andere Programme einbinden
+kann, und dass man variable Frontends dazuschreiben kann (welche f?r
+die Konsole oder f?r X11, usw.).
+
+Die library ist jetzt nahezu fertig, aber auch daf?r fehlt noch Doku.
+Bisher existiert nur das Fragment einer man-page, die aber in erster
+Linie das Interface anspricht, also nicht auf Steuerfragen eingeht. Um
+die man-page k?mmere ich mich, aber wenn Du Lust h?ttest, Steuer-Doku
+f?r die lib zu schreiben, w?re das auch sehr, sehr hilfreich. Ich kann
+an der Stelle schon mal sagen, dass ich mich mit Steuerthemen kaum
+auskenne. Ich mache nur die Programmierung.
+
+Ein einfaches Kommandozeilenfrontend ist bei der library dabei, damit
+kann man die lib testen oder benutzen, das k?nnte ich noch etwas
+aufpeppen und dokumentieren. Wann ich dazu komme, ein X11-Frontend zu
+schreiben, kann ich nicht sagen. Da ich ohnehin ?berwiegend auf der
+Konsole unterwegs bin, ist mir das auch nicht so wichtig. Da m?sstet
+ihr mich eventuell etwas schubsen ;-)
+
+Ich verschiebe die Diskussion mal nach opensteuer-dev. Alles was mit
+der Weiterentwicklung zu tun hat, diskutieren wir dort.
+
+Martin
+
+
+From mail1 at hannes-birnbacher.de  Fri Apr  2 17:29:38 2004
+From: mail1 at hannes-birnbacher.de (Hannes Birnbacher)
+Date: Fri, 2 Apr 2004 17:29:38 +0200
+Subject: [Opensteuer-dev] Re: [Opensteuer-users] Compilierung und
+ Installaltion unter SuSE 8.1
+In-Reply-To: <20040402160141.GA696@martinkl.dialup.fu-berlin.de>
+References: <000001c418ba$96fd1a90$0a00a8c0@heim.local>
+	<20040402160141.GA696@martinkl.dialup.fu-berlin.de>
+Message-ID: <20040402172938.6a53051d.mail1@hannes-birnbacher.de>
+
+Antwort auf die Nachricht vom Fri, 2 Apr 2004 18:01:41 +0200 von
+Martin Klaiber: 
+
+> 
+> Ich verschiebe die Diskussion mal nach opensteuer-dev. Alles was
+> mit der Weiterentwicklung zu tun hat, diskutieren wir dort.
+
+Uh, ich entschuldige mich nochmals. Ich habe die Existenz einer
+opensteuer-users Mailingliste total vergessen und bin gar nicht
+darauf gekommen, darauf hinzuweisen, die -dev zu abonnieren.
+
+Norman, ich w?rde mich riesig freuen, wenn Du die Doku ?bernehmen
+w?rdest. Am besten mailst Du sie mir, wenn und solange Du sie
+nicht etwa direkt im HTML-Format mit Markern nach Anweisung des
+Programmierers aufsetzt ... und das haben wir noch gar nicht
+ausprobiert. Format wie schon gesagt ist Dir freigestellt, mit
+bestimmten Pr?ferenzen diesseits. Aber ich krieg' dauernd von
+Kunden Dateien in allen m?glichen Formaten, von denen die
+erwarten, dass sie anschlie?end in HTML auf ihrer Website
+auftauchen.
+
+Gr??e,
+
+Hannes
+
+

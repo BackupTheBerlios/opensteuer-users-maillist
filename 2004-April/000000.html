@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/opensteuer-users/2004-April/index.html" >
+   <LINK REL="made" HREF="mailto:opensteuer-users%40lists.berlios.de?Subject=Re%3A%20%5BOpensteuer-users%5D%20Compilierung%20und%20Installaltion%20unter%20SuSE%208.1&In-Reply-To=%3C000001c418ba%2496fd1a90%240a00a8c0%40heim.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1</H1>
+    <B>Kurth, Norman</B> 
+    <A HREF="mailto:opensteuer-users%40lists.berlios.de?Subject=Re%3A%20%5BOpensteuer-users%5D%20Compilierung%20und%20Installaltion%20unter%20SuSE%208.1&In-Reply-To=%3C000001c418ba%2496fd1a90%240a00a8c0%40heim.local%3E"
+       TITLE="[Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1">NoKurth at gmx.de
+       </A><BR>
+    <I>Fri Apr  2 15:58:25 CEST 2004</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo zusammen,
+
+bevor ich mich an die allgemeine Beschreibung bzw. an die Erstellung der
+Doku/Hilfe machen wollte, war ich neugierig und wollten einen Blick auf den
+bisherigen Stand des Programmes werden.
+Doch leider bekomme ich es nicht hin (ok, meine Linux-Kenntnisse sind nicht
+die besten)!
+
+Immer wenn ich &quot;make -static&quot; eingebe, erhalte ich die folgenden
+Fehlermeldung:
+   gnatmake opensteuer -m `gtkada-config --static` -cargs -O3 -bargs -static
+   Package gtk+-x11-2.0 was not found in the pkg-config search path.
+   Perhaps you should add the directory containing `gtk+-x11-2.0.pc'
+   to the PKG_CONFIG_PATH environment variable
+   No package 'gtk+-x11-2.0' found
+   gcc -c -I/usr/include/gtkada -O3 opensteuer_main.adb
+   opensteuer_main.adb:61:35: expected an access type with designated
+private type &quot;Gtk_Frame_Record&quot; defined at gtk-frame.ads:54
+   opensteuer_main.adb:61:35: found type &quot;Gtk_Menu_Bar&quot; defined at
+gtk-menu_bar.ads:44
+   gnatmake: &quot;opensteuer_main.adb&quot; compilation error
+   make: *** [static] Error 4
+
+Auch die Eingabe von &quot;make&quot; hilft nicht weiter. Dann kann ich immer
+folgenden Fehlermeldung lesen:
+   gnatmake opensteuer -m `gtkada-config` -cargs -O3
+   gcc -c -I/usr/include/gtkada -O3 opensteuer_main.adb
+   opensteuer_main.adb:61:35: expected an access type with designated
+private type &quot;Gtk_Frame_Record&quot; defined at gtk-frame.ads:54
+   opensteuer_main.adb:61:35: found type &quot;Gtk_Menu_Bar&quot; defined at
+gtk-menu_bar.ads:44
+   gnatmake: &quot;opensteuer_main.adb&quot; compilation error
+   make: *** [all] Error 4
+
+Was muss ich tun, damit ich OpenSteuer zum laufen bekommen?
+Linux-Version ist SuSE 8.1
+
+Gru&#223;
+Norman
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[Opensteuer-users] Compilierung und Installaltion unter SuSE 8.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/opensteuer-users">More information about the Opensteuer-users
+mailing list</a><br>
+</body></html>
